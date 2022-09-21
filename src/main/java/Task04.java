@@ -1,6 +1,10 @@
 import calculator.ConsoleReader;
 import calculator.MathematicalLogic;
 
+/**
+ * @author by Anton Shtylenko
+ */
+
 public class Task04 {
     static ConsoleReader consoleReader = new ConsoleReader();
 
