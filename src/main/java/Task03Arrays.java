@@ -44,7 +44,7 @@ public class Task03Arrays {
         System.out.println("Minimum positive value in the array: " + min_positive);
         System.out.println("Minimum negative value in the array: " + min_negative);
 
-        System.out.println("The generated array , but the minimum negative value and the minimum positive value are changed: ");
+        System.out.println("The generated array, but the minimum negative value and the minimum positive value are changed: ");
         System.out.println(Arrays.toString(clone_array));
     }
 }
