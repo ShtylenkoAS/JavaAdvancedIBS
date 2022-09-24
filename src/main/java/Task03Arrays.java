@@ -29,11 +29,11 @@ public class Task03Arrays {
 
         int max_negative = -11;
         int min_positive = 11;
-        for (int j = 0; j < array.length; j++) {
-            if (array[j] < 0 && array[j] > max_negative) {
-                max_negative = array[j];
-            } else if (array[j] > 0 && array[j] < min_positive) {
-                min_positive = array[j];
+        for (int k : array) {
+            if (k < 0 && k > max_negative) {
+                max_negative = k;
+            } else if (k > 0 && k < min_positive) {
+                min_positive = k;
             }
         }
 
