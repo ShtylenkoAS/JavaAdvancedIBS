@@ -1,39 +1,35 @@
-import calculator.ConsoleReader;
 import calculator.MathematicalLogic;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /**
  * @author by Anton Shtylenko
  */
 
 public class Task04 {
-    static ConsoleReader consoleReader = new ConsoleReader();
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        char operation = 0;
+        double value1;
+        double value2;
 
-        System.out.println("Enter first value: ");
-        double value_1 = consoleReader.numReader();
-        System.out.println("Enter second value: ");
-        double value_2 = consoleReader.numReader();
-
-        String operation = consoleReader.operationReader();
-
-        MathematicalLogic mathematicalLogic = new MathematicalLogic(value_1, value_2);
-
-        switch (operation) {
-            case "+":
-                System.out.printf("Calculated value: %.4f", mathematicalLogic.summation());
-                break;
-            case "-":
-                System.out.printf("Calculated value: %.4f", mathematicalLogic.substraction());
-                break;
-            case "*":
-                System.out.printf("Calculated value: %.4f", mathematicalLogic.multiplication());
-                break;
-            case "/":
-                System.out.printf("Calculated value: %.4f", mathematicalLogic.division());
-                break;
-            default:
-                System.out.println("The entered value is not a mathematical operator! Please enter operation again!");
+        try {
+            System.out.println("Enter first value: ");
+            value1 = scanner.nextDouble();
+            System.out.println("Enter second value: ");
+            value2 = scanner.nextDouble();
+            System.out.println("Enter the desired mathematical operation (+, -, *, /): ");
+            operation = scanner.next().charAt(0);
+            MathematicalLogic mathematicalLogic = new MathematicalLogic();
+            System.out.println("Calculated value: " + mathematicalLogic.calculation(value1, value2, operation));
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input!");
+        } catch (ArithmeticException e) {
+            System.out.println("This calculator does not support the division by 0 operation");
+        } catch (Exception e) {
+            System.out.println("Unsupported operation type: " + operation);
         }
     }
 }

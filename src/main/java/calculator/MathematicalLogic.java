@@ -1,43 +1,28 @@
 package calculator;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MathematicalLogic {
-    private double value1;
-    private double value2;
+    private final Map<Character, Operation> operationMap = new HashMap<>();
 
-    public MathematicalLogic(double value_1, double value_2) {
-       this.value1 = value_1;
-       this.value2 = value_2;
+    public MathematicalLogic() {
+        operationMap.put('+', new Summation());
+        operationMap.put('-', new Substraction());
+        operationMap.put('*', new Multiplication());
+        operationMap.put('/', new Division());
     }
 
-    public double getValue1() {
-        return value1;
-    }
-
-    public void setValue1(double value1) {
-        this.value1 = value1;
-    }
-
-    public double getValue2() {
-        return value2;
-    }
-
-    public void setValue2(double value2) {
-        this.value2 = value2;
-    }
-
-    public double summation() {
-        return value1 + value2;
-    }
-
-    public double substraction() {
-        return  value1 - value2;
-    }
-
-    public double multiplication() {
-        return  value1 * value2;
-    }
-
-    public double division() {
-        return value1 / value2;
+    /**
+     *
+     * @param value1 as first value
+     * @param value2 as second value
+     * @param operation as mathematical operator
+     * @return calculate result
+     * @throws Exception if exists
+     */
+    public double calculation(double value1, double value2, char operation) throws Exception {
+        Operation operationMapValue = operationMap.getOrDefault(operation, new OperationNotFound(operation));
+        return operationMapValue.calculateResult(value1, value2);
     }
 }
