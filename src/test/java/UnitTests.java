@@ -22,6 +22,11 @@ public class UnitTests {
         assertEquals(48.0, mathematicalLogic.calculation(6.0, 8.0, '*'), 0);
     }
 
+    @Test (expected = ArithmeticException.class)
+    public void checkException() throws Exception {
+        mathematicalLogic.calculation(6.0, 0.0, '/');
+    }
+
     @Test
     public void checkDivision() throws Exception {
         assertEquals(12.0, mathematicalLogic.calculation(108.0, 9.0, '/'), 0);
