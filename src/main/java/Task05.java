@@ -7,7 +7,7 @@ import java.util.TreeMap;
  * @author  by Anton Shtylenko
  */
 
-public class Task06 {
+public class Task05 {
     public static void main(String[] args) {
         Scanner fileScanner;
 
